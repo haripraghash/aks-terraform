@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  redis-replica
+spec:
+  selector:
+    app:  redis
+    tier: backend
+    role: replica
+  type: ClusterIP
+  ports:
+  - name:  tcp
+    port:  6379
+    targetPort:  6379

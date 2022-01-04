@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend-scaler
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: frontend
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50

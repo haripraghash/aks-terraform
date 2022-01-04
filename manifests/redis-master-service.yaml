@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  redis-master
+  labels:
+    app: redis
+    role: master
+    tier: backend
+spec:
+  selector:
+    app:  redis
+    role: master
+    tier: backend
+  type:  ClusterIP
+  ports:
+  - name:  tcp
+    port:  6379
+    targetPort:  6379
